@@ -776,7 +776,7 @@ Software and Hardware, ashamed, returned to their homes.
         if(paramExists(url, 'today')) {
           const todaysDate = new Date();
           const trand = new Randoizer(
-            todaysDate.getMonth()*16 + todaysDate.getDay()
+            (todaysDate.getMonth()<<5) + todaysDate.getDay()
           );
           return chapters[trand.next() % chapters.length];
         } else if(paramExists(url, 'random')) {
