@@ -704,7 +704,8 @@ Software and Hardware, ashamed, returned to their homes.
 </div>
 <HR>
 </div>
-  <script>
+  <script type="module">
+    import { Randoizer } from "https://fbmstudios.net/randoizer/randoizer.mjs";
     const titles   = Array.from(document.querySelectorAll(".title-area"));
     const books    = Array.from(document.querySelectorAll(".book"));
     const chapters = Array.from(document.querySelectorAll(".chapter"));
@@ -716,21 +717,6 @@ Software and Hardware, ashamed, returned to their homes.
     //   https://fbmstudios.net/chris/tao/#4.2   <-- one chapter
     //   https://fbmstudios.net/chris/tao/#4     <-- book 4
     const validFragment = new RegExp('[0-9]+(\.[0-9]+)?');
-
-    class Randoizer {
-      constructor(seed) {
-        if(typeof seed === "undefined") {
-          seed = Date.now();
-        }
-        this.state = seed;
-      }
-
-      next() {
-        // https://en.wikipedia.org/wiki/Linear_congruential_generator
-        this.state = (1103515245 * this.state + 12345) % 2147483648;
-        return this.state;
-      }
-    }
 
     const randy = new Randoizer();
 
@@ -805,7 +791,7 @@ Software and Hardware, ashamed, returned to their homes.
       showElementsForUrl(window.location.href)
     }
  
-    for(evName of ["hashchange", "pageshow", "pagehide"]) {
+    for(const evName of ["hashchange", "pageshow", "pagehide"]) {
       addEventListener(evName, showElements);
     }
 
