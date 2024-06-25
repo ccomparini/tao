@@ -761,11 +761,12 @@ Software and Hardware, ashamed, returned to their homes.
 
       if(url) {
         if(paramExists(url, 'today')) {
-          const todaysDate = new Date();
-          const trand = new Randoizer(
-            (todaysDate.getMonth()<<5) + todaysDate.getDay()
-          );
-          return chapters[trand.next() % chapters.length];
+          const yStart = new Date(`${(new Date()).getFullYear()}-01-01:00:00`);
+          const rs = new Randoizer(yStart.getTime());
+          const chapterOrder = rs.knuthShuffle([...chapters.keys()]);
+
+          const day = Math.round((Date.now() - yStart.getTime())/(24*60*60*1000));
+          return chapters[chapterOrder[day % chapterOrder.length]];
         } else if(paramExists(url, 'random')) {
           return chapters[randy.next() % chapters.length];
         } else if(url.hash) {
