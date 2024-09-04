@@ -761,8 +761,9 @@ Software and Hardware, ashamed, returned to their homes.
 
       if(url) {
         if(paramExists(url, 'today')) {
-          const yStart = new Date(`${(new Date()).getFullYear()}-01-01:00:00`);
+          const yStart = new Date(`${(new Date()).getFullYear()}-01-01T00:00`);
           const rs = new Randoizer(yStart.getTime());
+          // each year gets a set of chapters, in a random order:
           const chapterOrder = rs.knuthShuffle([...chapters.keys()]);
 
           const day = Math.round((Date.now() - yStart.getTime())/(24*60*60*1000));
