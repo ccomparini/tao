@@ -761,11 +761,18 @@ Software and Hardware, ashamed, returned to their homes.
 
       if(url) {
         if(paramExists(url, 'today')) {
-          const yStart = new Date(`${(new Date()).getFullYear()}-01-01T00:00`);
+          // Note:  we use UTC for the year start so that everyone
+          // gets chapters in the same order for a given year regardless
+          // of their time zone.  However, we use local time to determine
+          // which chapter to show for a given day (see below).
+          const yStart = new Date(`${(new Date()).getFullYear()}-01-01T00:00Z`);
           const rs = new Randoizer(yStart.getTime());
+
           // each year gets a set of chapters, in a random order:
           const chapterOrder = rs.knuthShuffle([...chapters.keys()]);
 
+          // (local time here is deliberate - a given viewer gets the same
+          // chapter for their entire day)
           const day = Math.round((Date.now() - yStart.getTime())/(24*60*60*1000));
           return chapters[chapterOrder[day % chapterOrder.length]];
         } else if(paramExists(url, 'random')) {
