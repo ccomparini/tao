@@ -5,12 +5,12 @@ I copied this from [user xela at MIT](https://www.mit.edu/~xela/tao.html)
 The "value added" in this version is of an oracular nature:  you can
 ask it to show you a random chapter/verse, or one specially selected
 and suited for today's date in your timezone (or according to your
-browser's notion of the current time).  For example:
+browser's notion of the current time).  For example, hosted on my site,
 
-    https://fbmstudios.net/chris/tao/?today
+    https://fbmstudios.net/tao/?today
 ... gives today's chapter and verse, and:
 
-    https://fbmstudios.net/chris/tao/?random
+    https://fbmstudios.net/tao/?random
 ... shows a random one.
 
 Additionally, you can specify a particular chapter/verse to display
