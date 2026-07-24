@@ -7,8 +7,11 @@ ask it to show you a random chapter/verse, or one specially selected
 and suited for today's date in your timezone (or according to your
 browser's notion of the current time).  For example:
 
-    https://fbmstudios.net/chris/tao/?today   - today's message
-    https://fbmstudios.net/chris/tao/?random  - random
+    https://fbmstudios.net/chris/tao/?today
+... gives today's chapter and verse, and:
+
+    https://fbmstudios.net/chris/tao/?random
+... shows a random one.
 
 Additionally, you can specify a particular chapter/verse to display
 via the URL fragment.  For example:
